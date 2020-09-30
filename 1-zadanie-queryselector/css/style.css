@@ -2,13 +2,14 @@
     box-sizing: border-box;
 }
 body {
-    min-height: 100vh;
+    height: 100vh;
     margin:0;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #fefefe;
-    overflow: hidden;
+    min-height: 500px;
+    min-width: 500px;
 }
 body.win {
     background: url(../images/bgg.jpg);
@@ -30,24 +31,22 @@ body.win {
     height:100%;
 }
 .container {
-    height:80vmin;
-    width:80vmin;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 505px;
+    width: 505px;
     margin:20px auto;
-    display: flex;
-    flex-wrap: wrap;
     background: url(../images/container-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
-.container > div {
-    flex-basis: calc(100% / 7);
 }
 .el,
 .el.last-attempt span {
     background: #8283a7;
     font-family: 'Pacifico', cursive;
     display: flex;
-    font-size:3rem;
+    font-size:2rem;
     color: #fff;
     text-shadow: 1px 1px 1px #fff;
     font-weight: bold;
@@ -63,22 +62,16 @@ body.win {
     width: 100%;
     height: 100%;
 }
-.el:not(.last-attempt):before {
-    content:"";
-    padding-top:100%;
-    display: block;
-}
-
 .first-attempt.active,
 [data-border][data-el-active],
 span.active:not(.inactive),
 .hack[title="hacking"],
 .hijack:not([title]):not([data-hack-active]),
 .st1.st2[style*="color:"][style*="font-size:"][style*="red"][style*="15px"],
-.del[data-hack-active]:not([data-hack-inactive]):not(.hijack),
+.attrib[data-hack-active]:not([data-hack-inactive]),
 .last-attempt span[style^="display"][style*="none"] {
-    animation-delay: 1s;
     opacity:0;
+    animation-delay: 1s;
 }
 .last-img {
     width:100%;
