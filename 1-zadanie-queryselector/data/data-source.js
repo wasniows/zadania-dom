@@ -12,14 +12,11 @@ const time = setInterval(_ => {
 
     if (match) {
         clearInterval(time);
-
-        alert("Udało się!");
         document.querySelector('.container').remove();
         document.body.classList.add('win');
         const div = document.createElement('div');
         div.classList.add('video-cnt');
         div.innerHTML = '<div><iframe width="560" height="315" src="https://www.youtube.com/embed/zYt0WbDjJ4E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
         document.body.appendChild(div)
-
     }
 }, 700);
